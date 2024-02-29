@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" /> <!-- Correção: rel="stylesheet" -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="col1"></div>
+        <div class="col2">
+            <span class="title">Prime Bank</span>
+            <span class="subtitle mt-6 text-muted">Let´s signing you in</span>
+            <form id="formLogin" class="mt-14" onsubmit="login(event)">
+                <input id="inputEmail" type="email" name="email" placeholder="email">
+                <input id="inputSenha" type="password" name="password" placeholder="password">
+                <span>Forgot password?</span>
+                <button type="submit">Log in</button>
+            </form>
+            <label class="mt-14 text-muted">Or login with</label>
+            <div class=" roww mt-6">
+                <label>Google</label>
+                <label>Apple</label>
+            </div>
+            <span class="dont-account">Don´t have an account? <b>Sing up</b></span>
+        </div>
+    </div>
+
+    <script>
+        function login(e) {
+            e.preventDefault()
+            const email = document.getElementById('inputEmail').value;
+            const password = document.getElementById('inputSenha').value;
+            const data = [
+                {
+                    id: 1,
+                    email: 'renatadpulz@gmail.com',
+                    senha: 'teste123'
+                }
+            ]
+            const result = data.find(item => item.email === email
+                && item.senha === password)
+            if (!result) {
+                alert('Email e/ou senha incorretos.')
+            } else {
+                alert('Bem vindo(a) a sua conta!')
+            }
+        }
+    </script>
+
+</body>
+
+</html>
